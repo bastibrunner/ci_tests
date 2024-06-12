@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: eu_central_1
+  AWS_REGION: eu-central-1
   ECR_REPOSITORY: pexon-danswer-internal
 
 permissions:
