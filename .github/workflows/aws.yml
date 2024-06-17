@@ -22,6 +22,8 @@ jobs:
           ECR_REGISTRY: my-registry
           ECR_REPOSITORY_URI: my-registry/my-repository
         run: |
+          echo ${{ github.ref_name }}
+          echo ${{ github.ref_type }}
           echo ${{ env.ECR_REPOSITORY_URI }}:${{ github.sha }}
           echo ${{ github.ref_name == 'main' ||  github.ref_type == 'tag' && format('{0}:latest', env.ECR_REPOSITORY_URI) || null}}
           echo ${{ github.ref_name != 'main' &&  github.ref_type != 'tag' && format('{0}:dev', env.ECR_REPOSITORY_URI) || format('{0}:main', env.ECR_REPOSITORY_URI)}}
